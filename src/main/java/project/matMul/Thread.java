@@ -5,14 +5,14 @@ import project.Rnd;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Simple implements IMatrix{
+public class Thread implements IMatrix{
 
     private final int size;
     private final double[][] a;
     private final double[][] b;
     private final double[][] c;
 
-    public Simple(Rnd rnd, int size) {
+    public Thread(Rnd rnd, int size) {
         this.size = size;
         this.a = new double[size][];
         this.b = new double[size][];
@@ -25,15 +25,7 @@ public class Simple implements IMatrix{
 
     @Override
     public void multiply() {
-        for (int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                double s = 0;
-                for (int k = 0; k < size; k++) {
-                    s += a[i][k] * b[k][j];
-                }
-                c[i][j] = s;
-            }
-        }
+
     }
 
     @Override

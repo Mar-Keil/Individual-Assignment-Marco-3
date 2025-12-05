@@ -15,9 +15,9 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.SECONDS)
-@Warmup(iterations = 3, time = 10, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.SECONDS)
-@Fork(2)
+@Warmup(iterations = 2, time = 5, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 3, time = 5, timeUnit = TimeUnit.SECONDS)
+@Fork(1)
 
 public class Benchmarking {
 
@@ -49,10 +49,10 @@ public class Benchmarking {
         );
     }
 
-    @Param({"512", "1024", "2048", "4096"})
+    @Param({"512", "1024"})
     int size;
 
-    @Param({"SIMPLE"})
+    @Param({"SIMPLE", "THREAD"})
     MatrixType type;
 
 
@@ -91,6 +91,6 @@ public class Benchmarking {
     }
 }
 
-// cd IdeaProjects/Individual-Assignment-Marco-2
+// cd IdeaProjects/Individual-Assignment-Marco-3
 // mvn -q -DskipTests package
 // caffeinate java -jar target/benchmarks.jar project.Benchmarking.multiply -rf csv -rff results.csv
