@@ -25,7 +25,20 @@ public class Thread implements IMatrix{
 
     @Override
     public void multiply() {
+        // Jede Zeile von C wird unabhängig berechnet
+        IntStream.range(0, size).parallel().forEach(i -> {
+            double[] aRow = a[i];
+            double[] cRow = c[i];
 
+            for (int j = 0; j < size; j++) {
+                double sum = 0;
+
+                for (int k = 0; k < size; k++) {
+                    sum += aRow[k] * b[k][j];
+                }
+                cRow[j] = sum;
+            }
+        });
     }
 
     @Override

@@ -8,6 +8,7 @@ import oshi.SystemInfo;
 import oshi.hardware.GlobalMemory;
 
 import project.matMul.*;
+import project.matMul.Thread;
 
 import java.lang.management.ManagementFactory;
 import java.util.concurrent.TimeUnit;
@@ -61,6 +62,9 @@ public class Benchmarking {
         switch (type){
             case SIMPLE:
                 matrix = new Simple(rnd, size);
+                break;
+            case THREAD:
+                matrix = new Thread(rnd, size);
                 break;
         }
     }
