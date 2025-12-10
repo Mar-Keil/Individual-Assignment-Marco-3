@@ -16,9 +16,9 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Benchmark)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.SECONDS)
-@Warmup(iterations = 2, time = 5, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 3, time = 5, timeUnit = TimeUnit.SECONDS)
-@Fork(1)
+@Warmup(iterations = 3, time = 5, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 10, time = 10, timeUnit = TimeUnit.SECONDS)
+@Fork(2)
 
 public class Benchmarking {
 
@@ -50,7 +50,7 @@ public class Benchmarking {
         );
     }
 
-    @Param({"512", "1024"})
+    @Param({"512", "1024", "2048", "4096"})
     int size;
 
     @Param({"SIMPLE", "THREAD"})
