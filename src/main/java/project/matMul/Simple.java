@@ -17,10 +17,10 @@ public class Simple implements IMatrix{
         this.a = new double[size][];
         this.b = new double[size][];
         this.c = new double[size][size];
-        IntStream.range(0, size).parallel().forEach(r -> {
+        for (int r = 0; r < size; r++) {
             this.a[r] = rnd.fill(size);
             this.b[r] = rnd.fill(size);
-        });
+        }
     }
 
     @Override
