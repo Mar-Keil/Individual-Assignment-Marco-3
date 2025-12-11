@@ -50,7 +50,7 @@ public class Benchmarking {
         );
     }
 
-    @Param({"512", "1024", "2048", "4096"})
+    @Param({"512", "1024", "2048", "4096", "8192"})
     int size;
 
     @Param({"SIMPLE", "THREAD"})
